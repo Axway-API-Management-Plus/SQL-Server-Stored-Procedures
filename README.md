@@ -11,6 +11,7 @@ This artefact was successfully tested for the following versions:
 
 ## PART 1 : SQL connection setup
 **Introduction**
+
 This section describes how to connect an API Gateway to an SQL Server database. It is not a best practices but more a how-to guide to connect quickly an SQL Server database (for a POC for example)
 In this guide, the API Gateway is installed on a Windows
 
@@ -88,14 +89,17 @@ In this guide, the API Gateway is installed on a Windows
 
 ## PART 2 : Call the stored procedure
 **Introduction**
+
 This section describes how to call a SQL Server stored procedure. It is not a best practices but more a how-to guide to connect quickly an SQL Server database (for a POC for example)
 In this guide, the API Gateway is installed on a Windows
 
 **Context**
+
 The API Gateway owns a filter “Read/Write Database” which can be used to request a SQL database with a request (such as SELECT, INSERT, DELETE, UPDATE) or a stored procedure.
 Unfortunately, only the first result is returned from a stored procedure.
 
 **Solution**
+
 To read all the resultsets, the filter "Scripting" is used.
 A JavaScript is used to : 
 - Retrieve the database connection from the one configured in the configuration
@@ -136,6 +140,7 @@ A JavaScript is used to :
 [Screenshot11]: https://github.com/Axway-API-Management/SQL-Server-Stored-Procedures/blob/master/Screenshot11.png  "Screenshot11"   
 
 **Output : content**
+
 The attribute “content” contains all data in a JSON format:
 
 ![alt text][Screenshot12]
