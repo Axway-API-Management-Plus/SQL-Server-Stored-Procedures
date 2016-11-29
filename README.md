@@ -6,10 +6,10 @@ This artefact describes how to :
 
 ## API Management Version Compatibilty
 This artefact was successfully tested for the following versions:
-- To be completed
+- 7.4.1
 
 
-## PART 1 : SQL connection setup
+## Install : SQL connection setup
 **Introduction**
 
 This section describes how to connect an API Gateway to an SQL Server database. It is not a best practices but more a how-to guide to connect quickly an SQL Server database (for a POC for example)
@@ -27,7 +27,7 @@ In this guide, the API Gateway is installed on a Windows
 - Do not forget to restart Policy Studio with the option “-clean”
 
 ![alt text][Screenshot1]
-[Screenshot1]: https://github.com/Axway-API-Management/SQL-Server-Stored-Procedures/blob/master/Screenshot1.png  "Screenshot1"   
+[Screenshot1]: https://github.com/Axway-API-Management/SQL-Server-Stored-Procedures/blob/master/Readme/Screenshot1.png  "Screenshot1"   
 
 **“mixed mode” authentication activation**
 - Launch SQL Server Management Studio (Start > Run… > ssms > OK)
@@ -37,7 +37,7 @@ In this guide, the API Gateway is installed on a Windows
 - Refer to https://msdn.microsoft.com/en-us/library/ms188670.aspx
 
 ![alt text][Screenshot2]
-[Screenshot2]: https://github.com/Axway-API-Management/SQL-Server-Stored-Procedures/blob/master/Screenshot2.png  "Screenshot2"   
+[Screenshot2]: https://github.com/Axway-API-Management/SQL-Server-Stored-Procedures/blob/master/Readme/Screenshot2.png  "Screenshot2"   
 
 **sa user activation**
 - “Security” > ”Logins”
@@ -46,28 +46,28 @@ In this guide, the API Gateway is installed on a Windows
 - Select “Enabled” in the tab ”Status”  
 
 ![alt text][Screenshot3]
-[Screenshot3]: https://github.com/Axway-API-Management/SQL-Server-Stored-Procedures/blob/master/Screenshot3.png  "Screenshot3"   
+[Screenshot3]: https://github.com/Axway-API-Management/SQL-Server-Stored-Procedures/blob/master/Readme/Screenshot3.png  "Screenshot3"   
 
 **TCP activation**
 - Run SQL Server Configuration Manager : Start > Run… > SQLServerManager11.msc > OK
 - in "SQL Server Network Configuration" section, select “Protocols for SQLEXPRESS" and click on “TCP/IP”
 
 ![alt text][Screenshot4]
-[Screenshot4]: https://github.com/Axway-API-Management/SQL-Server-Stored-Procedures/blob/master/Screenshot4.png  "Screenshot4"   
+[Screenshot4]: https://github.com/Axway-API-Management/SQL-Server-Stored-Procedures/blob/master/Readme/Screenshot4.png  "Screenshot4"   
 
 - In the tab “Protocol” turn "Enabled” to “Yes”
 - In the tab "IP Addresses”, go directly at the bottom and in the section “IPAll” select "TCP port" to 1433
 - “TCP Dynamic Port” must stay empty
 
 ![alt text][Screenshot5]
-[Screenshot5]: https://github.com/Axway-API-Management/SQL-Server-Stored-Procedures/blob/master/Screenshot5.png  "Screenshot5"   
+[Screenshot5]: https://github.com/Axway-API-Management/SQL-Server-Stored-Procedures/blob/master/Readme/Screenshot5.png  "Screenshot5"   
 
 **Start “SQL Server” service**
 - In SQL Server Management Studio, right click on the server
 - Click on "Restart"
 
 ![alt text][Screenshot6]
-[Screenshot6]: https://github.com/Axway-API-Management/SQL-Server-Stored-Procedures/blob/master/Screenshot6.png  "Screenshot6"   
+[Screenshot6]: https://github.com/Axway-API-Management/SQL-Server-Stored-Procedures/blob/master/Readme/Screenshot6.png  "Screenshot6"   
 
 **JDBC connection setup in Policy Studio**
 - In Policy Studio, Drill down to “External Connections”
@@ -75,7 +75,7 @@ In this guide, the API Gateway is installed on a Windows
 - Click on “Add a Database Connection”
 
 ![alt text][Screenshot7]
-[Screenshot7]: https://github.com/Axway-API-Management/SQL-Server-Stored-Procedures/blob/master/Screenshot7.png  "Screenshot7"   
+[Screenshot7]: https://github.com/Axway-API-Management/SQL-Server-Stored-Procedures/blob/master/Readme/Screenshot7.png  "Screenshot7"   
 
 - Add a name
 - fill in JDBC URL: jdbc:sqlserver://<server>:1433;databaseName=<db>
@@ -85,9 +85,9 @@ In this guide, the API Gateway is installed on a Windows
 - If the test is OK, click on “OK”
 
 ![alt text][Screenshot8]
-[Screenshot8]: https://github.com/Axway-API-Management/SQL-Server-Stored-Procedures/blob/master/Screenshot8.png  "Screenshot8"   
+[Screenshot8]: https://github.com/Axway-API-Management/SQL-Server-Stored-Procedures/blob/master/Readme/Screenshot8.png  "Screenshot8"   
 
-## PART 2 : Call the stored procedure
+## Usage : Call the stored procedure
 **Introduction**
 
 This section describes how to call a SQL Server stored procedure. It is not a best practices but more a how-to guide to connect quickly an SQL Server database (for a POC for example)
@@ -121,12 +121,12 @@ A JavaScript is used to :
   * Parameter “Name” is used to retrieve the connection object from the script
   
 ![alt text][Screenshot9]
-[Screenshot9]: https://github.com/Axway-API-Management/SQL-Server-Stored-Procedures/blob/master/Screenshot9.png  "Screenshot9"   
+[Screenshot9]: https://github.com/Axway-API-Management/SQL-Server-Stored-Procedures/blob/master/Readme/Screenshot9.png  "Screenshot9"   
 
 - Attribute “db_connection” setup 
 
 ![alt text][Screenshot10]
-[Screenshot10]: https://github.com/Axway-API-Management/SQL-Server-Stored-Procedures/blob/master/Screenshot10.png  "Screenshot10"   
+[Screenshot10]: https://github.com/Axway-API-Management/SQL-Server-Stored-Procedures/blob/master/Readme/Screenshot10.png  "Screenshot10"   
 
 **Input : db_statement et db_param_n**
 - db_statement contained the stored procedure call 
@@ -137,38 +137,30 @@ A JavaScript is used to :
   * n = 1 for the first parameter, 2 for the second, etc.
 
 ![alt text][Screenshot11]
-[Screenshot11]: https://github.com/Axway-API-Management/SQL-Server-Stored-Procedures/blob/master/Screenshot11.png  "Screenshot11"   
+[Screenshot11]: https://github.com/Axway-API-Management/SQL-Server-Stored-Procedures/blob/master/Readme/Screenshot11.png  "Screenshot11"   
 
 **Output : content**
 
 The attribute “content” contains all data in a JSON format:
 
 ![alt text][Screenshot12]
-[Screenshot12]: https://github.com/Axway-API-Management/SQL-Server-Stored-Procedures/blob/master/Screenshot12.png  "Screenshot12"   
+[Screenshot12]: https://github.com/Axway-API-Management/SQL-Server-Stored-Procedures/blob/master/Readme/Screenshot12.png  "Screenshot12"   
 
 **Policy structure**
 
 ![alt text][Screenshot13]
-[Screenshot13]: https://github.com/Axway-API-Management/SQL-Server-Stored-Procedures/blob/master/Screenshot13.png  "Screenshot13"   
+[Screenshot13]: https://github.com/Axway-API-Management/SQL-Server-Stored-Procedures/blob/master/Readme/Screenshot13.png  "Screenshot13"   
 
 **Script structure**
 
 ![alt text][Screenshot14]
-[Screenshot14]: https://github.com/Axway-API-Management/SQL-Server-Stored-Procedures/blob/master/Screenshot14.png  "Screenshot14"   
+[Screenshot14]: https://github.com/Axway-API-Management/SQL-Server-Stored-Procedures/blob/master/Readme/Screenshot14.png  "Screenshot14"   
 
-
-## Usage
-```
-To be completed
-```
-
-   
+ 
 
 ## Bug and Caveats
 
-```
-To be completed
-```
+Nothing identified
 
 ## Contributing
 
@@ -182,5 +174,5 @@ Please read [Contributing.md] (/Contributing.md) for details on our code of cond
 
 
 ## License
-Apache License 2.0 (refer to document [license] (https://github.com/Axway-API-Management/Executing-loopback-requests-on-a-listener/blob/master/LICENSE))
+Apache License 2.0 (refer to document [license] (/LICENSE))
 
